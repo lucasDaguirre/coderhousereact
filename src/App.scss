@@ -1,0 +1,13 @@
+@import './assets/scss/reset.scss';
+@import './assets/scss/fonts.scss';
+@import './assets/scss/variables.scss';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+.pageContainer{
+    width: min(75%, 1100px);
+    margin: auto;}
+
+body > * {
+    font-family: sans-serif;
+}
+

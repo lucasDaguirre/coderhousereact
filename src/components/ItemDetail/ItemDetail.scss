@@ -1,0 +1,10 @@
+.itemDetailContainer{
+    margin: 2rem 10rem;
+    .itemDetailHead{
+        display: flex;
+        justify-content: center;
+        .itemDetailHead > * {
+            flex: 1;
+        }
+    }
+}

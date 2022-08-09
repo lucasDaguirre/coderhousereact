@@ -1,0 +1,9 @@
+.selectWidget{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .selectWidgetButtons{
+        display: flex;
+        gap: 1rem;
+    }
+}

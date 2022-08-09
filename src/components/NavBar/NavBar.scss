@@ -1,0 +1,73 @@
+@import '../../assets/scss/variables.scss';
+
+.navBar{
+    .navBarTop{
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        & > * {
+            display: flex;
+            align-items: center;
+        }
+        .navBarLogo{
+            flex-grow: 1;
+            flex-basis: 0;
+            img{
+                height: 70px;
+            }
+        }
+        .navBarSearch{
+            width: 40%;
+        }
+        .navBarCustomer{
+            flex-grow: 1;
+            flex-basis: 0;
+            justify-content: end;
+            & > * {
+                display: flex;
+                height: 100%;
+                align-items: center;
+                & > * {
+                    padding: 0 1rem;
+                }
+            }
+            // ICONS
+            .navIcon{
+                font-size: 1.75rem;
+                color: $main-blue;
+                transition: all 0.15s linear;
+                &:hover{
+                    color: $main-red;
+                }
+            }
+        }
+    }
+    .navBarBottom{
+        border-top: 1px solid $grey;
+        border-bottom: 1px solid $grey;
+        padding: 1rem;
+        padding-bottom: 0;
+        .navBarMenu{
+            font-family: 'Saira', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            li{
+                padding-bottom: calc(1rem - 2px);
+                border-bottom: 3px solid rgba(0, 0, 0, 0);
+                margin-bottom: -1px;
+                color: $main-blue;
+                transition: all 0.15s linear;
+
+            }
+            li:hover{
+                border-color: $main-red;
+                color: $main-red;
+            }
+        }
+    }
+}
+
