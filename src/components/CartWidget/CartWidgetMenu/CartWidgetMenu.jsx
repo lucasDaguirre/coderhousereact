@@ -17,7 +17,7 @@ const CartWidgetMenu = ({price, units}) => {
           </div>
           <div>
             <p>Subtotal: ${price},00</p>
-            <Button text="Vaciar Carrito" onClick={cartEmpty}/>
+            <Button text="FINALIZAR LA COMPRA" onClick={cartEmpty}/>
           </div>
     </div>
   )
