@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Hero from "../../components/Hero/Hero";
 import ItemListContainer from "../../components/ItemListContainer/ItemListContainer";
-const Home = () => {
+const Home = () => {  
   return (
     <div>
       <Hero/>

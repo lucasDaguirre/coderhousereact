@@ -1,0 +1,23 @@
+@import '../../assets/scss/variables.scss';
+
+.cartWidget{
+    .cartWidgetBtn{
+        position: relative;
+        .cartCounter{
+            position: absolute;
+            height: 18px;
+            font-size: 12px;
+            aspect-ratio: 1;
+            background-color: $main-blue;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            border-radius: 5px;
+            top: -5px;
+            left: 15px;
+        };
+
+    };
+}

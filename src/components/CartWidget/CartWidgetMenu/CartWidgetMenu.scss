@@ -1,0 +1,100 @@
+@import '../../../assets/scss/variables.scss';
+
+.cartWidgetMenu{
+    visibility: hidden;
+    padding: 3rem 3rem;
+    background-color: white;
+    position: fixed;
+    border-left: 1px solid $grey;
+    height: 100vh;
+    width: 375px;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 3rem;
+    & > * {
+        display: flex;
+    };
+    & > :first-child {
+        height: fit-content;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Saira', sans-serif;
+        color: $main-blue;
+        p {
+            font-family: 'Saira', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-left: 5px solid $main-blue;
+            padding-left: 0.75rem;
+        }
+        button{
+            font-size: 1.5rem;
+            font-weight: 500;
+            &:hover{
+                color: $main-red;
+            }
+        }
+    };
+    & > :nth-child(2){
+        flex: 6;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            visibility: hidden;
+        };
+        .cartItem{
+            display: flex;
+            font-size: 0.85rem;
+            border-bottom: 1px solid $grey;
+            padding-bottom: 1rem;
+            gap: 0.5rem;
+            & > * {
+                &:nth-child(2){
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+                &:last-child{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    font-weight: 600;
+                    button{
+                        font-size: 1.25rem;
+                        align-self: end;
+                    }
+                }
+            }
+            img{
+                height: 100px;
+                aspect-ratio: 1;
+                object-fit: contain;
+            }
+        }
+    }
+
+    & > :last-child{
+        justify-content: end;
+        height: fit-content;
+        font-size: 1.2rem;
+        font-weight: 600;
+        flex-direction: column;
+        gap: 2rem;
+        button{
+            width: 100%
+        }
+        p{
+            text-align: end;
+        }
+    };
+};
+
+.cartActive{
+    visibility: visible;
+}

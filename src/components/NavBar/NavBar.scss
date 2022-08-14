@@ -2,7 +2,7 @@
 
 .navBar{
     .navBarTop{
-        width: 80%;
+        width: 90%;
         margin: auto;
         display: flex;
         justify-content: space-between;
@@ -39,7 +39,10 @@
                 transition: all 0.15s linear;
                 &:hover{
                     color: $main-red;
-                }
+                    .cartCounter{
+                        background-color: $main-red;
+                    };
+                };
             }
         }
     }

@@ -1,16 +1,18 @@
 import './ItemDetailBuy.scss'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { CartContext } from '../../../context/CartContext';
 import OptionSelect from '../../OptionSelect/OptionSelect'
 import ItemCount from '../../ItemCount/ItemCount'
 import Button from '../../Button/Button'
 import { Link } from 'react-router-dom';
 
 const ItemDetailBuy = ( {item} ) => {
+  const { addProduct } = useContext(CartContext);
   const [avaliableSizes, setAvailability] = useState([]);
   const [selectedSize, setSelectedSize] = useState();
   const [selectedStock, setSelectedStock] = useState();
-  const [selectedQuantity, setQuantity] = useState();
-  const [checkout, setCheckout] = useState(true);
+  const [selectedQuantity, setQuantity] = useState();  
+  const {id, title, image, price} = item;
 
   useEffect(() => {
     setOptions();
@@ -22,14 +24,7 @@ const ItemDetailBuy = ( {item} ) => {
     setAvailability(sizes)
   };
 
-  const sizeSelect = (e) => {
-    const button = e.target;
-    const selection = e.target.innerText;
-    setSelectedSize(selection);
-    setButtons(button);
-  }
-
-  const setStock     = (selection) => {
+  const setStock = (selection) => {
     const totalStock = Object.entries(item.stock);
     const itemStock = totalStock.filter(item => item[0] === selectedSize)[0];
     console.log(itemStock[1])
@@ -41,9 +36,25 @@ const ItemDetailBuy = ( {item} ) => {
     selection.classList.add("btnSelected");
   }
 
+  const sizeSelect = (e) => {
+    const button = e.target;
+    const selection = e.target.innerText;
+    setSelectedSize(selection);
+    setButtons(button);
+  }
+
+  const allSelections = {
+    id: id,
+    title: title,
+    image: image,
+    quantity: selectedQuantity,
+    size: selectedSize,
+    price: price * selectedQuantity
+  };
+
   const toCart = () => {
-    if(selectedQuantity > 0){
-      setCheckout(false);
+    if(selectedQuantity > 0 && selectedSize){
+      addProduct(allSelections);
     }
   }
 
@@ -55,10 +66,8 @@ const ItemDetailBuy = ( {item} ) => {
       </div>
       <div className='itemBuySelect'>
         <OptionSelect title="SELECCIONAR TALLE:" options={avaliableSizes} click={sizeSelect} identifier="btnSize"/>
-        
-        {checkout ? <ItemCount title="CANTIDAD:" setQuantity={setQuantity} stock={5}/> : <></>}
-        {checkout ? <Button text="AGREGAR AL CARRO" onClick={toCart}/> : <></>}
-        {!checkout ? <Link to="/checkout"><Button text="FINALIZAR COMPRA" onClick={toCart}/></Link> : <></>}
+        <ItemCount title="CANTIDAD:" setQuantity={setQuantity} stock={5}/>
+        <Button text="AGREGAR AL CARRO" onClick={toCart}/>
       </div>
     </div>
   )

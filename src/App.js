@@ -6,18 +6,22 @@ import Home from './pages/Home/Home';
 import Category from './pages/Category/Category';
 import Product from './pages/Product/Product';
 import Page404 from './pages/Page404/Page404';
+import CartProvider from './context/CartContext';
+
 
 const App = () => {
   return (
     <>
-    <NavBar/>
-    <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/:category" element={<Category/>}/>
-        <Route path="/:category/:id" element={<Product/>} />
-        <Route path="*" element={<Page404/>}/>
-    </Routes>
-    <Footer/>
+    <CartProvider>
+      <NavBar/>
+      <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/:category" element={<Category/>}/>
+          <Route path="/:category/:id" element={<Product/>} />
+          <Route path="*" element={<Page404/>}/>
+      </Routes>
+      <Footer/>
+    </CartProvider>
     </>
     
   )
