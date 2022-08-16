@@ -10,7 +10,7 @@ $borderGrey : rgb(217, 217, 217);
     text-align: center;
     gap: 1rem;
     .itemCard-img{
-        height: 200px;
+        height: 180px;
         display: flex;
         justify-content: center;
         overflow: hidden;
@@ -23,6 +23,8 @@ $borderGrey : rgb(217, 217, 217);
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-overflow: ellipsis;
+        overflow: hidden; 
         gap: 1rem;
         .itemCard-price{
             font-weight: 600;

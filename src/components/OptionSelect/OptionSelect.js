@@ -6,7 +6,7 @@ const OptionSelect = ({title, options, click, identifier}) => {
     <div className='selectWidget'>
       <span>{title}</span>
       <div className='selectWidgetButtons'>
-      {options.map((option, index) => <Button key={index} text={option} onClick={click} identifier={identifier}/>)}
+      {options.map((option, index) => <Button key={index} text={option} onClick={click} btnTheme="btnWhite" identifier={identifier}/>)}
       </div>
     </div>
   )

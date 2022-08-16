@@ -49,7 +49,7 @@ const ItemDetailBuy = ( {item} ) => {
     image: image,
     quantity: selectedQuantity,
     size: selectedSize,
-    price: price * selectedQuantity
+    price: price
   };
 
   const toCart = () => {
@@ -66,7 +66,7 @@ const ItemDetailBuy = ( {item} ) => {
       </div>
       <div className='itemBuySelect'>
         <OptionSelect title="SELECCIONAR TALLE:" options={avaliableSizes} click={sizeSelect} identifier="btnSize"/>
-        <ItemCount title="CANTIDAD:" setQuantity={setQuantity} stock={5}/>
+        <ItemCount title="CANTIDAD:" setQuantity={setQuantity} startingQuantity={0}/>
         <Button text="AGREGAR AL CARRO" onClick={toCart}/>
       </div>
     </div>

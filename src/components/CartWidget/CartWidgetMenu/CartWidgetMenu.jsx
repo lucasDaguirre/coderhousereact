@@ -1,15 +1,16 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { CartContext } from '../../../context/CartContext';
 import CartWidgetMenuItem from './CartWidgetMenuItem';
 import './CartWidgetMenu.scss';
 import Button from '../../Button/Button';
+import { Link } from 'react-router-dom';
 
 const CartWidgetMenu = ({price, units}) => {
-    const { cartProducts, setCartProducts, cartEmpty, cartToggle } = useContext(CartContext);
+    const { cartProducts, totalQuantity, totalPrice, cartToggle } = useContext(CartContext);
   return (
     <div className="cartWidgetMenu">
           <div>
-              <p>{`TU CARRITO (${units})`}</p>
+              <p className="text2">{`TU CARRITO (${units})`}</p>
               <button onClick={cartToggle}>X</button>
           </div>
           <div>
@@ -17,7 +18,9 @@ const CartWidgetMenu = ({price, units}) => {
           </div>
           <div>
             <p>Subtotal: ${price},00</p>
-            <Button text="FINALIZAR LA COMPRA" onClick={cartEmpty}/>
+            <Link to="/cart">
+              <Button text="IR AL CARRITO" onClick={cartToggle}/>
+            </Link>
           </div>
     </div>
   )

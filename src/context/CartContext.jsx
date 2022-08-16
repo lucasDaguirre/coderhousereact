@@ -1,22 +1,47 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
 
 const CartProvider = ({children}) => {
     const [cartProducts, setCartProducts] = useState([]);
+    const [totalQuantity, setTotalQuantity] = useState();
+    const [totalPrice, setTotalPrice] = useState();
+
+    useEffect(() => {
+        setTotals(cartProducts);
+    }, [cartProducts]);
 
     const addProduct = (product) => {
         const checkDupe = cartProducts.find(cartItem => cartItem.id === product.id && cartItem.size === product.size);
         if (!checkDupe) {
-            setCartProducts([...cartProducts, product])
+            setCartProducts([...cartProducts, product]);
+            cartToggle();
         } else {
-            // en progreso xd
+            updateCart(product);
         }
     };
 
     const deleteProduct = (product) => {
         setCartProducts(cartProducts.filter( (cartProduct) => cartProduct.id !== product.id || cartProduct.size !== product.size) )
     };
+
+    const updateCart = (product) => {
+        const cart = (cartProducts.filter( (cartProduct) => cartProduct.id !== product.id || cartProduct.size !== product.size));
+        const updatedProduct = (cartProducts.filter((cartProduct) => cartProduct.id == product.id && cartProduct.size == product.size ));
+        updatedProduct[0].quantity = parseInt(updatedProduct[0].quantity + product.quantity);
+        setCartProducts([...cart, updatedProduct[0]]);
+    }
+
+    const updateQuantity = (quantity, product) => {
+        if(quantity > 0){
+            const cart = (cartProducts.filter( (cartProduct) => cartProduct.id !== product.id || cartProduct.size !== product.size));
+            const updatedProduct = (cartProducts.filter((cartProduct) => cartProduct.id == product.id && cartProduct.size == product.size ));
+            updatedProduct[0].quantity = quantity;
+        setCartProducts([...cart, updatedProduct[0]]);
+        } else {
+            deleteProduct(product);
+        }
+    }
 
     const cartEmpty = () => {
         setCartProducts([])
@@ -26,9 +51,22 @@ const CartProvider = ({children}) => {
         document.querySelector(".cartWidgetMenu").classList.toggle("cartActive")
     }
 
+    const setTotals = (products) => {
+        let units = 0;
+        let price = 0;
+        products.forEach(product => {
+            units = parseInt(units + product.quantity);
+            price = parseInt(price + product.quantity * product.price);
+        });
+        setTotalQuantity(units);
+        setTotalPrice(price);
+    };
+
+
+
     
     return(
-        <CartContext.Provider value={{cartProducts, setCartProducts, cartEmpty, addProduct, deleteProduct, cartToggle}}>
+        <CartContext.Provider value={{cartProducts, setCartProducts, cartEmpty, addProduct, deleteProduct, totalQuantity, totalPrice, updateQuantity, cartToggle}}>
             {children}
         </CartContext.Provider>
     );

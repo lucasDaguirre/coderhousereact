@@ -9,7 +9,7 @@ const productDB = [
             S: 2,
             M: 0,
             L: 6,
-            XL: 6
+            XL: 6 
         }
     },
     {

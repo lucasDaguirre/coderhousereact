@@ -6,14 +6,6 @@
     padding: 1rem 0;
     gap: 2rem;
     color: $main-blue;
-    .itemListHeader{
-        font-family: 'Saira', sans-serif;
-        font-size: 2rem;
-        font-weight: 500;
-        padding: 1rem 0;
-        border-left: 5px solid $main-blue;
-        padding-left: 0.75rem;
-    }
     & > *{
         display: flex;
         justify-content: space-between;

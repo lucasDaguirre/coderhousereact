@@ -1,19 +1,23 @@
 @import '../../assets/scss/variables.scss';
 
 .btnNormal{
-    font-family: 'Saira', sans-serif;
+    font-family: 'Barlow Semi Condensed', sans-serif;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 600;
     padding: 0.5rem;
     border: 2px solid;
     transition: all 0.15s linear;
     text-align: center;
-    width: fit-content;
+    left: 0;
+    right: 0;
+    background: $main-blue;
+    border-color: $main-blue;
+    color: white;
     &:hover{
-        background: $main-blue;
+        background: white;
         border-color: $main-blue;
-        color: white;
+        color: $main-blue;
     }
 }
 
@@ -24,7 +28,14 @@
 }
 
 .btnWhite{
-    color: white;
+    background: white;
+    border-color: $main-blue;
+    color: $main-blue;
+    &:hover{
+        background: $main-blue;
+        border-color: $main-blue;
+        color: white;
+    }
 }
 
 .btnBlue{

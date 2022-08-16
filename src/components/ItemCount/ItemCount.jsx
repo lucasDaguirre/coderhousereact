@@ -1,9 +1,10 @@
 import './ItemCount.scss';
 import React, { useState, useEffect } from 'react';
-const ItemCount = ({title, setQuantity, stock}) => {
-    const [count, setCount] = useState(0);
+
+const ItemCount = ({title, setQuantity, startingQuantity, params}) => {
+    const [count, setCount] = useState(startingQuantity);
     useEffect(() => {
-        setQuantity(count);
+        setQuantity(count, params);
     }, [count])
     const onSubtract = () => {
         if (count !== 0){
@@ -11,20 +12,20 @@ const ItemCount = ({title, setQuantity, stock}) => {
         }
     };
     const onAdd = () => {
-        if(count < stock){
+        if(count < 10){
             setCount(count + 1)
         }
     }
-  return (
-    <div className='itemCountContainer'>
-        <span>{title}</span>
-        <div className='itemCount'>
-            <button onClick={onSubtract}>-</button>
-            <span>{count}</span>
-            <button onClick={onAdd}>+</button>
+    return (
+        <div className='itemCountContainer'>
+            <span>{title}</span>
+            <div className='itemCount'>
+                <button onClick={onSubtract}>-</button>
+                <span>{count}</span>
+                <button onClick={onAdd}>+</button>
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default ItemCount

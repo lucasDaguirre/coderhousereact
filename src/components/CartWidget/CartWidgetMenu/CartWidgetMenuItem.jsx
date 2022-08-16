@@ -5,7 +5,7 @@ const CartWidgetMenuItem = ({productData}) => {
     const { cartProducts, setCartProducts, deleteProduct } = useContext(CartContext);
     const {title, image, price, quantity, size} = productData;
   return (
-    <div className='cartItem'>
+    <div className="cartWidgetItem">
         <div>
             <img src={`../assets/${image}`} alt="Product" />
         </div>
@@ -15,7 +15,7 @@ const CartWidgetMenuItem = ({productData}) => {
             <p>Talle: {size}</p>
         </div>
         <div>
-            <p>${price},00</p>
+            <p>${price * quantity},00</p>
             <button onClick={() => deleteProduct(productData)}><i className="bi bi-trash3"></i></button>
         </div>
     </div>
