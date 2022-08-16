@@ -1,6 +1,8 @@
+@import '../../assets/scss/variables.scss';
 .pageFooter{
     border-top: 1px solid black;
     text-align: center;
     padding: 2rem 0;
-    background-color: blue;
+    background-color: $main-blue;
+    color: white;
 }

@@ -10,10 +10,12 @@ const Cart = () => {
   return (
       <div className="cartContainer w75">
         <div>
-          <div>Los artículos en tu carrito no están reservados. Terminá el proceso de compra ahora para hacerte con ellos.</div>
           <div>
+            <p>Los artículos en tu carrito no están reservados. Terminá el proceso de compra ahora para hacerte con ellos.</p>
+            <div>
             <span>Envío gratís con tu compra desde $5000.</span>
             <button className="textButton" onClick={cartEmpty}>ELIMINAR TODO</button>
+          </div>
           </div>
           <div className="cartItemContainer">
             {( cartProducts.length > 0) ? cartProducts.map((product, index) => <CartItem key={index} productData={product}/>) : <p>Tu carrito esta vacío.</p>}

@@ -18,6 +18,7 @@ const CartProvider = ({children}) => {
             cartToggle();
         } else {
             updateCart(product);
+            cartToggle();
         }
     };
 
@@ -49,6 +50,7 @@ const CartProvider = ({children}) => {
 
     const cartToggle = () => {
         document.querySelector(".cartWidgetMenu").classList.toggle("cartActive")
+        document.querySelector(".pageOverlay").classList.toggle("pageOverlayActive")
     }
 
     const setTotals = (products) => {

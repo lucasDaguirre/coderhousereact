@@ -2,10 +2,14 @@ import './NavBar.scss';
 import CartWidget from '../CartWidget/CartWidget';
 import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 const NavBar = () => {
+  const { cartToggle } = useContext(CartContext);
   return (
     <div className='navBar'>
+      <div onClick={cartToggle} className="pageOverlay"></div>
       <div className="navBarTop">
         <div className="navBarLogo">
           <Link to='/'><img src='/assets/logo-main.png' alt="Store Logo"/></Link>
