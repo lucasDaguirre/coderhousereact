@@ -29,9 +29,10 @@
         text-decoration: underline;
     }
 }
-html, body, .root, .appWrap{
-    height: 100%;
+html {
+    scroll-behavior: smooth;
 }
+
 .pageOverlay{
     position: fixed;
     height: 100vh;

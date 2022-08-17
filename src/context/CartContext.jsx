@@ -9,6 +9,7 @@ const CartProvider = ({children}) => {
 
     useEffect(() => {
         setTotals(cartProducts);
+        console.log(cartProducts)
     }, [cartProducts]);
 
     const addProduct = (product) => {
@@ -33,12 +34,23 @@ const CartProvider = ({children}) => {
         setCartProducts([...cart, updatedProduct[0]]);
     }
 
-    const updateQuantity = (quantity, product) => {
+    const updateQuantity1 = (quantity, product) => {
         if(quantity > 0){
             const cart = (cartProducts.filter( (cartProduct) => cartProduct.id !== product.id || cartProduct.size !== product.size));
             const updatedProduct = (cartProducts.filter((cartProduct) => cartProduct.id == product.id && cartProduct.size == product.size ));
             updatedProduct[0].quantity = quantity;
         setCartProducts([...cart, updatedProduct[0]]);
+        } else {
+            deleteProduct(product);
+        }
+    }
+
+    const updateQuantity = (quantity, product) => {
+        const newCart = [...cartProducts];
+        const updatedItem = newCart.findIndex(cartItem => cartItem.id === product.id && cartItem.size === product.size);
+        if(updatedItem !== -1 && quantity > 0){
+            newCart[updatedItem].quantity = quantity;
+            setCartProducts(newCart);
         } else {
             deleteProduct(product);
         }
