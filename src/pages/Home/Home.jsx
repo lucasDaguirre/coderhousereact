@@ -6,7 +6,7 @@ const Home = () => {
     <>
       <Hero/>
       <div className="pageContainer">
-        <ItemListContainer title="Productos Destacados"/>
+        <ItemListContainer title="Productos Destacados" filters={[]}/>
       </div>
     </>
   )

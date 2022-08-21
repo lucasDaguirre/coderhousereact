@@ -1,3 +1,5 @@
+$grey: rgb(228, 228, 228);
+
 .itemDetailContainer{
     margin: 2rem 10rem;
     .itemDetailHead{
@@ -7,4 +9,124 @@
             flex: 1;
         }
     }
+}
+
+.itemDetailWrap{
+    width: 100%;
+    display: flex;
+    gap: 3rem;
+    & > * {
+    }
+    & > :first-child{
+        padding: 1rem;
+        flex: 2;
+        aspect-ratio: 1;
+        border: 1px solid $grey;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        & > :first-child{
+            height: calc(100% - 6rem);
+            width: 100%;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+        & > :last-child{
+            border-top: 1px solid $grey;
+            padding-top: 1rem;
+            height: 5rem;
+            width: 100%;
+            display: flex;
+            margin: auto;
+            flex-direction: row;
+            justify-content: space-evenly;
+            & > * {
+                height: 100%;
+                object-fit: contain;
+                cursor: pointer;
+                aspect-ratio: 1;
+            }
+        }
+    }
+    & > :last-child{
+        padding: 3rem 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        h1{
+            font-family: 'Barlow Semi Condensed', 'Barlow', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 500;
+            font-style: italic;
+            text-transform: uppercase;
+        }
+        & > :nth-child(2){
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+    }
+}
+
+.txt2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: normal;
+}
+/*
+.option{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: 500;
+    & > :last-child{
+        display: flex;
+        gap: 0.5rem;
+        & > * {
+            border: 1px solid rgb(221, 221, 221);
+            width: 70px;
+            height: 40px;
+            text-align: center;
+            &:hover{
+                background-color: black;
+                color: white;
+            }
+        }
+    }
+}
+*/
+.newButton{
+    height: 40px;
+    padding: 0 0.5rem;
+    width: fit-content;
+    background-color: black;
+    color: white;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-weight: 500;
+    & > :first-child{
+        z-index: 1;
+    }
+    & > :last-child{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        outline: 1px solid black;
+        bottom: -4px;
+        right: -4px;
+    }
+}
+
+.colorsList{
+    text-transform: uppercase;
+    font-size: 1rem;
 }

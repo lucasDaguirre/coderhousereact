@@ -8,18 +8,28 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    /*
     .pageContainer{
         flex: 1;
         margin: 2rem 0;
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        justify-content: start;
+    }
+    */
+    .pageContainer{
+        margin: 2rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        flex: 1;
     }
 }
 
 .w75{
     width: min(75%, 1300px);
-    margin: auto;        
 }
 
 .textButton{
@@ -38,13 +48,13 @@ html {
     height: 100vh;
     width: 100%;
     background-color: rgba(0, 0, 0);
-    z-index: 1;
+    z-index: 2;
     transition: all 0.1s linear;
     visibility: hidden;
     opacity: 0;
 }
 
 .pageOverlayActive{
-    opacity: 0.5;
+    opacity: 0.6;
     visibility: visible;
 }

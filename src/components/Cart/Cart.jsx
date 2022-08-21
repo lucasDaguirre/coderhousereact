@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import CartItem from './CartItem';
 import Button from '../Button/Button';
+import { formattedCurrency } from '../../utils/utilFunctions';
 
 const Cart = () => {
     const { cartProducts, setCartProducts, cartEmpty, totalQuantity, totalPrice } = useContext(CartContext);
@@ -27,7 +28,7 @@ const Cart = () => {
             <div>
               <div>
                 <p>{(totalQuantity == 1) ? `1 PRODUCTO` : `${totalQuantity} Productos`}</p>
-                <p>${totalPrice},00</p>
+                <p>{formattedCurrency(totalPrice)}</p>
               </div>
               <div>
                 <p>ENVÍO</p>
@@ -35,7 +36,7 @@ const Cart = () => {
               </div>
               <div>
                 <p>TOTAL</p>
-                <p>${totalPrice},00</p>
+                <p>{formattedCurrency(totalPrice)}</p>
               </div>
             </div>
           </div>

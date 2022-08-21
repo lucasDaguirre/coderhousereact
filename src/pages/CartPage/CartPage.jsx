@@ -11,7 +11,7 @@ const CartPage = () => {
     <div className="pageContainer">
       <h1 className="text1 w75">TU CARRITO {}</h1>
       {(totalQuantity > 0) ? <Cart/> : <CartEmpty/>}
-      <ItemListContainer title="productos recomendados"/>
+      <ItemListContainer title="productos recomendados" filters={""}/>
     </div>
   )
 }

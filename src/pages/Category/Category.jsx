@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import ItemListContainer from '../../components/ItemListContainer/ItemListContainer';
 
-const Category = () => {
+const CategoryPage = () => {
+  const { category } = useParams();
+  const [filter, setFilter] = useState(["category", "==", `${category}`])
+
+  useEffect(() => {
+    setFilter(["category", "==", `${category}`])
+  }, [category]);
+
+
   return (
     <div className="pageContainer">
-      Category
+      <ItemListContainer title={category} filters={filter}/>
     </div>
   )
 }
 
-export default Category
+export default CategoryPage

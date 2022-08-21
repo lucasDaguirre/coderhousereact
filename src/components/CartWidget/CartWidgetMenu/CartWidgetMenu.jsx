@@ -4,6 +4,7 @@ import CartWidgetMenuItem from './CartWidgetMenuItem';
 import './CartWidgetMenu.scss';
 import Button from '../../Button/Button';
 import { Link } from 'react-router-dom';
+import { formattedCurrency } from '../../../utils/utilFunctions';
 
 const CartWidgetMenu = ({price, units}) => {
     const { cartProducts, totalQuantity, totalPrice, cartToggle } = useContext(CartContext);
@@ -17,7 +18,7 @@ const CartWidgetMenu = ({price, units}) => {
             {(cartProducts.length > 0) ? cartProducts.map((product, index) => <CartWidgetMenuItem key={index} productData={product}/>) : <p>Tu carrito esta vacío.</p>}
           </div>
           <div>
-            <p>Subtotal: ${price},00</p>
+            <p>Subtotal: {formattedCurrency(totalPrice)}</p>
             <Link to="/cart">
               <Button text="IR AL CARRITO" onClick={cartToggle}/>
             </Link>
