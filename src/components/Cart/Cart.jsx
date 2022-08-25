@@ -1,12 +1,24 @@
 import './Cart.scss';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import CartItem from './CartItem';
 import Button from '../Button/Button';
-import { formattedCurrency } from '../../utils/utilFunctions';
+import { formattedCurrency, scrollLock } from '../../utils/utilFunctions';
+import Modal from '../Modal/Modal';
+import CartModal from './CartModal';
 
 const Cart = () => {
     const { cartProducts, setCartProducts, cartEmpty, totalQuantity, totalPrice } = useContext(CartContext);
+    const [modalState, setModalState] = useState(false);
+
+    const openModal = () => {
+      if (totalQuantity > 0){
+        setModalState(true);
+        scrollLock();
+      }
+    }
+
+    const modalData = [totalQuantity, totalPrice, formattedCurrency]
 
   return (
       <div className="cartContainer w75">
@@ -40,12 +52,13 @@ const Cart = () => {
               </div>
             </div>
           </div>
-          <Button text="FINALIZAR COMPRA"/>
+          <Button onClick={() => openModal()} text="FINALIZAR COMPRA"/>
           <div>
             <p>MEDIOS DE PAGO</p>
             <img src="../assets/medios-de-pagos.webp" alt="medios de pago" />
           </div>
         </div>
+        { modalState ? <Modal title="Finalizar Compra" setState={setModalState} children={<CartModal data={modalData}/>}/> : null }
       </div>
   )
 }

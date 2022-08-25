@@ -55,39 +55,41 @@ const ItemDetail = ({productData}) => {
   }
 
   return (
-    <div className='itemDetailContainer'>
-      <div className="itemDetailWrap">
-        <div>
+    <div className='pageContainer'> 
+      <div className='itemDetailContainer w75'>
+        <div className="itemDetailWrap">
           <div>
-            {/* En proceso */}
+            <div>
+              {/* En proceso */}
+              <img src={`../assets/${image}`} alt="" />
+            </div>
+            <div>
             <img src={`../assets/${image}`} alt="" />
+            <img src={`../assets/${image}`} alt="" />
+            <img src={`../assets/${image}`} alt="" />
+            <img src={`../assets/${image}`} alt="" />
+            <img src={`../assets/${image}`} alt="" />
+            </div>
           </div>
           <div>
-          <img src={`../assets/${image}`} alt="" />
-          <img src={`../assets/${image}`} alt="" />
-          <img src={`../assets/${image}`} alt="" />
-          <img src={`../assets/${image}`} alt="" />
-          <img src={`../assets/${image}`} alt="" />
-          </div>
-        </div>
-        <div>
-          <h1>{title}</h1>
-          <div>
-              <span className="txt2">{formattedCurrency(price)}</span>
-              <span>Hasta en 6 cuotas s/interés de {formattedCurrency(price/6)}.</span>
-          </div>
-          <span className='colorsList'>{colors.join(' / ')}</span>
-          <p>{description}</p>
-          <div className="option">
-            <OptionSelect title="SELECCIONAR TALLE:" options={avaliableSizes} click={sizeSelect} identifier="btnSize"/>
-          </div>
-          <div>
-            <ItemCount title="CANTIDAD:" setQuantity={setQuantity} startingQuantity={0}/>
-          </div>
-          <div className="newButton">
-            <button onClick={() => toCart()}>AGREGAR AL CARRITO</button>
-            <i className="bi bi-arrow-right"></i>
-            <div></div>
+            <h1>{title}</h1>
+            <div>
+                <span className="txt2">{formattedCurrency(price)}</span>
+                <span>Hasta en 6 cuotas s/interés de {formattedCurrency(price/6)}.</span>
+            </div>
+            <span className='colorsList'>{colors.join(' / ')}</span>
+            <p>{description}</p>
+            <div className="option">
+              <OptionSelect title="SELECCIONAR TALLE:" options={avaliableSizes} click={sizeSelect} identifier="btnSize"/>
+            </div>
+            <div>
+              <ItemCount title="CANTIDAD:" setQuantity={setQuantity} startingQuantity={0}/>
+            </div>
+            <div className="newButton">
+              <button onClick={() => toCart()}>AGREGAR AL CARRITO</button>
+              <i className="bi bi-arrow-right"></i>
+              <div></div>
+            </div>
           </div>
         </div>
       </div>
