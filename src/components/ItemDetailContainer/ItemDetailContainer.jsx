@@ -7,7 +7,6 @@ import {doc, getDoc} from "firebase/firestore";
 
 const ItemDetailContainer = () => {
     const {id} = useParams()
-    const [listProducts, setProducts] = useState ([]);
     const [dataLoaded, setDataLoaded] = useState (false);
     const [productData, setProductData] = useState({});
 
